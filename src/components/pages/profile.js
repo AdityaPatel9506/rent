@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/profile.css";
 import Navbar from "./navbar";
-
+import closeButton from "../images/close.png"; 
 const ProfilePage = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -98,7 +98,16 @@ const ProfilePage = () => {
       <Navbar />
       <div id="profile-container">
         <div id="menubar">
-          <div>Menu</div>
+          <div id="close-div">
+            <div>
+          
+            </div>
+            <div>
+              <button>
+              <img src={closeButton} alt="Close menu" />
+              </button>
+            </div>
+          </div>
           <ul className="menu-options">
             <li><a href="#dashboard">Dashboard</a></li>
             <li><a href="#settings">Settings</a></li>

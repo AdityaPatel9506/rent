@@ -34,6 +34,23 @@ body {
   color: white;
   text-decoration: none;
 }
+#close-div{
+  display: flex;
+  flex-direction: row;
+  
+  justify-content: space-between;
+}
+#close-div button{
+  width: fit-content;
+  height: fit-content;
+  background: none;
+
+
+}
+#close-div img{
+  width: 25px;
+  height: 25px;
+}
 
 #profile-data {
   flex: 1;
