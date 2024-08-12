@@ -1,0 +1,171 @@
+/* Default styles */
+#homepage {
+    display: flex;
+    flex-direction: row;
+   
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.8) 0%, 
+        rgba(0, 0, 0, 0.4) 50%, 
+        rgba(0, 0, 0, 0.8) 100%
+    );
+  
+}
+
+#tagline {
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#homeimage {
+    width: 50vw;
+    height: 100%; /* Ensure the div takes full height of the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Hide any overflow from the images */
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the div while maintaining aspect ratio */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+h1, h3 {
+    color: #FFFFFF; /* Bright White for text */
+    font-family: 'Roboto', sans-serif; /* Premium font */
+    font-weight: 300; /* Light weight for a premium feel */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Subtle shadow for readability */
+}
+
+h1 {
+    font-size: 2.5em; /* Larger font size for emphasis */
+}
+
+h3 {
+    font-size: 1.5em; /* Slightly smaller font size */
+}
+
+.banner-ad{
+    display: flex;
+    width: 100%;
+    border: 2px solid red;
+    height: 100px;
+  margin-top: 20px;
+}
+/* Media Queries */
+@media (max-width: 1200px) {
+    #tagline {
+        width: 50vw;
+    }
+
+    #homeimage {
+        width: 50vw;
+    }
+}
+.get-started-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: none; /* A bright and appealing color */
+    border: 2px solid white;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+  
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.get-started-button:hover {
+    background-color: rgb(61, 60, 60) /* Darker shade for hover effect */
+    
+}
+@media (max-width: 992px) {
+    #homepage {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    #tagline, #homeimage {
+        width: 100vw;
+        height: auto;
+    }
+
+    #homeimage {
+        height: 60vh; /* Adjust to make sure it fits well on smaller screens */
+    }
+
+    h1 {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+
+    h3 {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    #homepage {
+        padding: 0 10px;
+        justify-content: space-around;
+        
+    }
+
+    #tagline {
+        padding: 10px;
+        font-size: 0.8em;
+        text-align: center; /* Center-align text */
+    }
+
+    #homeimage {
+        width: 100%;
+        height: 50vh; /* Adjust height for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Further reduce font size */
+    }
+
+    h3 {
+        font-size: 1em; /* Further reduce font size */
+    }
+}
+
+@media (max-width: 480px) {
+    #homepage {
+        padding: 0 5px;
+        justify-content: space-around;
+    }
+
+    #tagline {
+        font-size: 0.7em;
+        text-align: center; /* Center-align text */
+    }
+
+    #homeimage {
+        width: 100%;
+        height: 40vh; /* Further reduce height */
+    }
+
+    h1 {
+        font-size: 1.2em; /* Further reduce font size */
+    }
+
+    h3 {
+        font-size: 0.9em; /* Further reduce font size */
+    }
+}

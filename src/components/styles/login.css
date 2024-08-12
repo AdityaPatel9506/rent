@@ -1,0 +1,139 @@
+/* src/styles/login.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Use a clean, professional font */
+}
+
+.login-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 2rem;
+    background: #f8f9fa; /* Light background color for the whole page */
+}
+
+.login-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px; /* Limit the width of the container */
+    border: 1px solid #dee2e6; /* Light border for the container */
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem; /* Slightly larger font size */
+    color: #343a40; /* Darker text color for better readability */
+    text-align: center;
+    font-weight: 600; /* Bold font for the heading */
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* More rounded corners */
+    font-size: 1rem;
+    background-color: #f1f3f5; /* Subtle background color for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+.form-group input:focus {
+    border-color: #007bff; /* Color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: 0.875rem; /* Smaller font size for label */
+    color: #6c757d;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: #ffffff; /* Background to cover input border */
+    padding: 0 0.4rem; /* Adjust to match the padding of the input */
+    border-radius: 4px; /* Rounded corners for the label background */
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 0.5rem; /* Adjust for better positioning */
+    font-size: 0.75rem; /* Smaller font size when focused */
+    color: #007bff; /* Change color when focused */
+}
+
+#login-button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.125rem; /* Slightly larger font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#login-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.signup-container {
+    text-align: center;
+    margin-top: 1.5rem; /* Increased space above the signup text */
+    font-size: 0.9rem; /* Slightly smaller text */
+    color: #6c757d; /* Lighter color for the text */
+}
+
+.signup-container p {
+    display: inline; /* Keep the text inline with the link */
+    margin-right: 0.5rem; /* Space between the text and link */
+}
+
+.signup-container a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: 600; /* Make the link text bold */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth transition for color and underline */
+    position: relative; /* Position relative for the underline effect */
+}
+
+.signup-container a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -2px; /* Position the underline below the text */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Height of the underline */
+    background: linear-gradient(90deg, #007bff, #0056b3); /* Gradient effect */
+    transform: scaleX(0); /* Initial scale of 0 to hide the underline */
+    transform-origin: bottom right; /* Animate from right to left */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover */
+}
+
+.signup-container a:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+    transform-origin: bottom left; /* Animate from left to right */
+}
+.banner-ad{
+    display: flex;
+    width: 100%;
+    border: 2px solid red;
+    height: 100px;
+  
+}

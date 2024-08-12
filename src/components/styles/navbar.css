@@ -1,0 +1,201 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Main Navbar */
+.main-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-navbar .logo {
+    flex: 1;
+}
+
+.main-navbar .logo a {
+    font-size: 1.75rem;
+    color: #333333;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.main-navbar .logo a:hover {
+    color: #007bff;
+}
+
+.main-navbar .search-bar-container {
+    display: flex;
+    gap: 1rem; /* Space between search bars and button */
+    align-items: center;
+ 
+    align-items: flex-end;
+}
+
+.main-navbar .search-bar {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem; /* Standard font size for location search */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-navbar .search-bar.product-search {
+    flex: 1;
+    padding: 0.75rem 1.25rem; /* Increased padding for product search */
+    font-size: 1.2rem; /* Larger font size for product search */
+    width: 300px;
+    align-items: flex-end;
+   
+}
+
+.search-bar-location {
+    width: 250px;
+}
+
+.search-bar-products {
+    width: 400px;
+}
+
+.main-navbar .search-bar:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.main-navbar .search-button {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100px; /* Adjusted width */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 30px;
+   
+}
+
+.main-navbar .search-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+ 
+}
+
+.main-navbar .profile-and-sell {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.main-navbar .nav-link {
+    padding: 0.75rem 1.25rem;
+  align-self: flex-end;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100px; /* Adjusted width */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 30px;
+    height: max-content;
+}
+
+.main-navbar .nav-link:hover {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #FF5722 ;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+ 
+    
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    transform: scale(1.05);
+}
+
+.main-navbar .sell-button {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #28a745;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.main-navbar .sell-button:hover {
+    background-color: #218838; /* Adjusted hover color */
+    transform: scale(1.05);
+}
+
+/* Quick Links Navbar */
+.quick-links-navbar {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quick-links-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links-list li {
+    margin: 0;
+}
+
+.quick-links-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.quick-links-list a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-navbar .search-bar-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-navbar .search-bar {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-navbar .search-button {
+        width: 100%;
+    }
+}
