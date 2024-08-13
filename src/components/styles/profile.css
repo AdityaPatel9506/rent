@@ -14,16 +14,20 @@ body {
   width: 100%;
 }
 
+/* Menubar styling */
 #menubar {
   width: 20%;
   background: #333;
   color: white;
   padding: 1rem;
+  position: relative; /* Ensures it does not overlap other elements */
+  z-index: 1;
 }
 
 #menubar .menu-options {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 #menubar .menu-options li {
@@ -34,24 +38,29 @@ body {
   color: white;
   text-decoration: none;
 }
-#close-div{
+
+#close-div {
   display: flex;
-  flex-direction: row;
-  
   justify-content: space-between;
+  align-items: center; /* Aligns items vertically in the center */
 }
-#close-div button{
+
+#close-div button {
   width: fit-content;
   height: fit-content;
   background: none;
-
-
+  border: none; /* Removes default button border */
+  cursor: pointer;
+  padding: 0; /* Removes any default padding */
 }
-#close-div img{
+
+#close-div img {
   width: 25px;
   height: 25px;
+  object-fit: contain; /* Ensures image fits within the boundaries */
 }
 
+/* Profile data section */
 #profile-data {
   flex: 1;
   padding: 1rem;
@@ -150,4 +159,36 @@ button {
 .cancel-button {
   margin-top: 25px;
   background: #6c757d;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  #profile-container {
+    flex-direction: column;
+  }
+
+  #menubar {
+    width: 100%;
+    padding: 0.5rem;
+    position: relative; /* Keeps it from overlapping */
+    z-index: 1000;
+  }
+
+  #profile-data {
+    border-left: none;
+  }
+
+  #menubar .menu-options {
+    padding-left: 0;
+  }
+
+  #close-div {
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 500px){
+.form-row{
+  flex-direction: column;
+}
 }

@@ -2,9 +2,10 @@
 
 import React from 'react';
 import '../styles/navbar.css'; // Import the CSS file
-
+import QuickLinksNavbar from './quicklinks';
 const MainNavbar = () => {
     return (
+     <>
       <nav className="main-navbar">
       <div className="logo">
           <a href="/">Rent & Sell</a>
@@ -18,7 +19,11 @@ const MainNavbar = () => {
           <button className="sell-button">Sell</button>
           <a href="/profile" className="nav-link">Profile</a>
       </div>
+
   </nav>
+  <QuickLinksNavbar />
+     </>
+
     );
 };
 

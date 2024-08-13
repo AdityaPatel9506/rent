@@ -97,6 +97,7 @@
     flex-direction: row;
     gap: 1rem;
     align-items: center;
+    margin-top: 15px;
 }
 
 .main-navbar .nav-link {
@@ -188,6 +189,8 @@
     .main-navbar .search-bar-container {
         flex-direction: column;
         width: 100%;
+        align-self: center;
+   
     }
 
     .main-navbar .search-bar {
@@ -196,6 +199,17 @@
     }
 
     .main-navbar .search-button {
-        width: 100%;
+        
+        width: fit-content;
+        align-self: center;
+        width: 100px ;
+    }
+    .main-navbar .profile-and-sell {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 15px;
+        align-self: center;
     }
 }

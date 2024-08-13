@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/profile.css";
 import Navbar from "./navbar";
 import closeButton from "../images/close.png"; 
+import hamburgerIcon from "../images/Hamburger_icon.svg.png"; 
 const ProfilePage = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -19,7 +20,7 @@ const ProfilePage = () => {
   const [errors, setErrors] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [imagePreview, setImagePreview] = useState(""); // State to store image preview
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {
     // Fetch user profile data and populate the form
     const fetchProfileData = async () => {
@@ -93,27 +94,38 @@ const ProfilePage = () => {
     console.log("Profile deleted");
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen); // Toggle the menu state
+  };
   return (
     <>
       <Navbar />
       <div id="profile-container">
-        <div id="menubar">
+      <div id="menubar" className={isMenuOpen ? "open" : ""}>
           <div id="close-div">
             <div>
-          
+              {!isMenuOpen && (
+                <button onClick={toggleMenu}>
+                  <img src={hamburgerIcon} alt="Open menu" />
+                </button>
+              )}
             </div>
             <div>
-              <button>
-              <img src={closeButton} alt="Close menu" />
-              </button>
+              {isMenuOpen && (
+                <button onClick={toggleMenu}>
+                  <img src={closeButton} alt="Close menu" />
+                </button>
+              )}
             </div>
           </div>
-          <ul className="menu-options">
-            <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#settings">Settings</a></li>
-            <li><a href="#notifications">Notifications</a></li>
-            <li><a href="#support">Support</a></li>
-          </ul>
+          {isMenuOpen && (
+            <ul className="menu-options">
+              <li><a href="#dashboard">Dashboard</a></li>
+              <li><a href="#settings">Settings</a></li>
+              <li><a href="#notifications">Notifications</a></li>
+              <li><a href="#support">Support</a></li>
+            </ul>
+          )}
         </div>
         <div id="profile-data">
           <div>
