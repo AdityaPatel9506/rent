@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useRef  } from "react";
 import "../styles/profile.css";
 import Navbar from "./navbar";
 import closeButton from "../images/close.png"; 
 import hamburgerIcon from "../images/Hamburger_icon.svg.png"; 
+import userDefault from "../images/user.jpg"; 
 const ProfilePage = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -20,7 +21,7 @@ const ProfilePage = () => {
   const [errors, setErrors] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [imagePreview, setImagePreview] = useState(""); // State to store image preview
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => {
     // Fetch user profile data and populate the form
     const fetchProfileData = async () => {
@@ -35,7 +36,7 @@ const ProfilePage = () => {
         zipcode: "10001",
         state: "NY",
         country: "USA",
-        profileImage: "https://via.placeholder.com/150" // Default profile image
+        profileImage: userDefault // Default profile image
       };
       setFormData(profileData);
       setImagePreview(profileData.profileImage); // Set initial image preview
@@ -44,21 +45,53 @@ const ProfilePage = () => {
     fetchProfileData();
   }, []);
 
+  
   const validateForm = () => {
     let errors = {};
+    let firstErrorField = null;
 
-    if (!formData.username) errors.username = "Username is required";
-    if (!formData.email) errors.email = "Email is required";
-    if (!formData.password) errors.password = "Password is required";
-    if (formData.password !== formData.confirmPassword)
+    if (!formData.username) {
+      errors.username = "Username is required";
+      firstErrorField = firstErrorField || "username";
+    }
+    if (!formData.email) {
+      errors.email = "Email is required";
+      firstErrorField = firstErrorField || "email";
+    }
+    if (!formData.password) {
+      errors.password = "Password is required";
+      firstErrorField = firstErrorField || "password";
+    }
+    if (formData.password !== formData.confirmPassword) {
       errors.confirmPassword = "Passwords must match";
-    if (!formData.streetAddress) errors.streetAddress = "Street address is required";
-    if (!formData.city) errors.city = "City is required";
-    if (!formData.zipcode) errors.zipcode = "Zipcode is required";
-    if (!formData.state) errors.state = "State is required";
-    if (!formData.country) errors.country = "Country is required";
+      firstErrorField = firstErrorField || "confirmPassword";
+    }
+    if (!formData.streetAddress) {
+      errors.streetAddress = "Street address is required";
+      firstErrorField = firstErrorField || "streetAddress";
+    }
+    if (!formData.city) {
+      errors.city = "City is required";
+      firstErrorField = firstErrorField || "city";
+    }
+    if (!formData.zipcode) {
+      errors.zipcode = "Zipcode is required";
+      firstErrorField = firstErrorField || "zipcode";
+    }
+    if (!formData.state) {
+      errors.state = "State is required";
+      firstErrorField = firstErrorField || "state";
+    }
+    if (!formData.country) {
+      errors.country = "Country is required";
+      firstErrorField = firstErrorField || "country";
+    }
 
     setErrors(errors);
+
+    if (firstErrorField) {
+      document.getElementById(firstErrorField).focus(); // Autofocus on the first error field
+    }
 
     return Object.keys(errors).length === 0;
   };
@@ -93,15 +126,26 @@ const ProfilePage = () => {
     // Handle profile deletion logic here
     console.log("Profile deleted");
   };
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen); // Toggle the menu state
+
+    if (menuRef.current) {
+      if (isMenuOpen) {
+        // If menu is open, it means we are closing it
+        menuRef.current.style.width = "0"; // Change width when closing
+      } else {
+        // If menu is closed, it means we are opening it
+        menuRef.current.style.width = "250px"; // Adjust width as needed
+      }
+    }
   };
   return (
     <>
       <Navbar />
       <div id="profile-container">
-      <div id="menubar" className={isMenuOpen ? "open" : ""}>
+      <div id="menubar" className={isMenuOpen ? "open" : "close"}>
           <div id="close-div">
             <div>
               {!isMenuOpen && (
@@ -118,14 +162,12 @@ const ProfilePage = () => {
               )}
             </div>
           </div>
-          {isMenuOpen && (
-            <ul className="menu-options">
-              <li><a href="#dashboard">Dashboard</a></li>
-              <li><a href="#settings">Settings</a></li>
-              <li><a href="#notifications">Notifications</a></li>
-              <li><a href="#support">Support</a></li>
-            </ul>
-          )}
+          <ul className="menu-options">
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#settings">Settings</a></li>
+            <li><a href="#notifications">Notifications</a></li>
+            <li><a href="#support">Support</a></li>
+          </ul>
         </div>
         <div id="profile-data">
           <div>

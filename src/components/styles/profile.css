@@ -8,49 +8,75 @@ body {
 /* Profile container styling */
 #profile-container {
   display: flex;
-  padding: 1rem;
+
   border: 2px solid salmon;
   min-height: 100vh;
   width: 100%;
 }
 
 /* Menubar styling */
+/* General styling for menubar */
 #menubar {
-  width: 20%;
-  background: #333;
+  width: 0; /* Start with closed width */
+  height: inherit;
+  overflow: hidden;
+  transition: width 0.3s ease; /* Smooth transition for width */
+  background-color: #333; /* Example background color */
   color: white;
   padding: 1rem;
   position: relative; /* Ensures it does not overlap other elements */
   z-index: 1;
 }
 
-#menubar .menu-options {
+/* Menubar states */
+#menubar.open {
+  width: 250px; /* Width when open */
+}
+
+#menubar.close {
+  width: 60px; /* Width when closed */
+}
+
+/* Menu options styling */
+.menu-options {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  opacity: 0; /* Hide menu options initially */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
 }
 
-#menubar .menu-options li {
+#menubar.open .menu-options {
+  opacity: 1; /* Show menu options when open */
+}
+
+#menubar.close .menu-options {
+  opacity: 0; /* Hide menu options when closed */
+}
+
+.menu-options li {
   margin: 0.5rem 0;
 }
 
-#menubar .menu-options li a {
+.menu-options li a {
   color: white;
   text-decoration: none;
 }
 
+/* Close div styling */
 #close-div {
   display: flex;
   justify-content: space-between;
+  padding: 10px;
   align-items: center; /* Aligns items vertically in the center */
 }
 
 #close-div button {
+  background: none;
+  border: none;
+  cursor: pointer;
   width: fit-content;
   height: fit-content;
-  background: none;
-  border: none; /* Removes default button border */
-  cursor: pointer;
   padding: 0; /* Removes any default padding */
 }
 
@@ -59,6 +85,7 @@ body {
   height: 25px;
   object-fit: contain; /* Ensures image fits within the boundaries */
 }
+
 
 /* Profile data section */
 #profile-data {
@@ -164,7 +191,7 @@ button {
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   #profile-container {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   #menubar {
@@ -172,6 +199,8 @@ button {
     padding: 0.5rem;
     position: relative; /* Keeps it from overlapping */
     z-index: 1000;
+    margin: 0px;
+    flex-direction: column;
   }
 
   #profile-data {
@@ -191,4 +220,13 @@ button {
 .form-row{
   flex-direction: column;
 }
+
+#profile-actions{
+  flex-direction: column;
+
 }
+button{
+  width: fit-content;
+}
+}
+
